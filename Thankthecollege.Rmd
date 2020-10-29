@@ -1,0 +1,340 @@
+---
+title: "Thank the College"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+```
+
+
+# Importing and Cleaning Data
+```{r}
+allplayers <- read.csv("C://Users//Bashar//Downloads//overtheyears.csv")
+head(data)
+```
+
+```{r}
+c = count(allplayers, College)
+c
+```
+
+
+# Get the colleges that have sent the most players to the NBA
+```{r}
+bigcolleges <- allplayers%>%
+  filter(College == "Kentucky" | College == "UCLA" | College == "UNC" | College =="Duke" | College == "Gonzaga" | College == "Virginia" | College == "Oregon" | College == "Kansas" | College == "Louisville" | College == "Arizona" | College == "UConn" | College == "Syracuse" | College == "Michigan" | College == "Michigan State")
+```
+
+
+#Get the top10 for each statistic from each team
+```{r}
+## Points ##
+kentucky <- bigcolleges %>%
+  filter(College == "Kentucky")%>%
+  top_n(n = 10, wt = PTS)
+
+ucla <- bigcolleges %>%
+  filter(College == "UCLA")%>%
+  top_n(n = 10, wt = PTS)
+
+unc <- bigcolleges %>%
+  filter(College == "UNC")%>%
+  top_n(n = 10, wt = PTS)
+
+duke <- bigcolleges %>%
+  filter(College == "Duke")%>%
+  top_n(n = 10, wt = PTS)
+
+gonzaga <- bigcolleges %>%
+  filter(College == "Gonzaga")%>%
+  top_n(n = 10, wt = PTS)
+
+virginia <- bigcolleges %>%
+  filter(College == "Virginia")%>%
+  top_n(n = 10, wt = PTS)
+
+oregon <- bigcolleges %>%
+  filter(College == "Oregon")%>%
+  top_n(n = 10, wt = PTS)
+
+kansas <- bigcolleges %>%
+  filter(College == "Kansas")%>%
+  top_n(n = 10, wt = PTS)
+
+louisville <- bigcolleges %>%
+  filter(College == "Louisville")%>%
+  top_n(n = 10, wt = PTS)
+
+arizona <- bigcolleges %>%
+  filter(College == "Arizona")%>%
+  top_n(n = 10, wt = PTS)
+
+uconn <- bigcolleges %>%
+  filter(College == "UConn")%>%
+  top_n(n = 10, wt = PTS)
+
+syracuse <- bigcolleges %>%
+  filter(College == "Syracuse")%>%
+  top_n(n = 10, wt = PTS)
+
+michigan <- bigcolleges %>%
+  filter(College == "Michigan")%>%
+  top_n(n = 10, wt = PTS)
+
+michiganstate <- bigcolleges %>%
+  filter(College == "Michigan State")%>%
+  top_n(n = 10, wt = PTS)
+
+## Assists##
+
+kentuckya <- bigcolleges %>%
+  filter(College == "Kentucky")%>%
+  top_n(n = 10, wt = AST)
+
+uclaa <- bigcolleges %>%
+  filter(College == "UCLA")%>%
+  top_n(n = 10, wt = AST)
+
+unca <- bigcolleges %>%
+  filter(College == "UNC")%>%
+  top_n(n = 10, wt = AST)
+
+dukea <- bigcolleges %>%
+  filter(College == "Duke")%>%
+  top_n(n = 10, wt = AST)
+
+gonzagaa <- bigcolleges %>%
+  filter(College == "Gonzaga")%>%
+  top_n(n = 10, wt = AST)
+
+virginiaa <- bigcolleges %>%
+  filter(College == "Virginia")%>%
+  top_n(n = 10, wt = AST)
+
+oregona <- bigcolleges %>%
+  filter(College == "Oregon")%>%
+  top_n(n = 10, wt = AST)
+
+kansasa <- bigcolleges %>%
+  filter(College == "Kansas")%>%
+  top_n(n = 10, wt = AST)
+
+louisvillea <- bigcolleges %>%
+  filter(College == "Louisville")%>%
+  top_n(n = 10, wt = AST)
+
+arizonaa <- bigcolleges %>%
+  filter(College == "Arizona")%>%
+  top_n(n = 10, wt = AST)
+
+uconna <- bigcolleges %>%
+  filter(College == "UConn")%>%
+  top_n(n = 10, wt = AST)
+
+syracusea <- bigcolleges %>%
+  filter(College == "Syracuse")%>%
+  top_n(n = 10, wt = AST)
+
+michigana <- bigcolleges %>%
+  filter(College == "Michigan")%>%
+  top_n(n = 10, wt = AST)
+
+michiganstatea <- bigcolleges %>%
+  filter(College == "Michigan State")%>%
+  top_n(n = 10, wt = AST)
+
+## Rebounds ##
+
+kentuckyr <- bigcolleges %>%
+  filter(College == "Kentucky")%>%
+  top_n(n = 10, wt = TRB)
+
+uclar <- bigcolleges %>%
+  filter(College == "UCLA")%>%
+  top_n(n = 10, wt = TRB)
+
+uncr <- bigcolleges %>%
+  filter(College == "UNC")%>%
+  top_n(n = 10, wt = TRB)
+
+duker <- bigcolleges %>%
+  filter(College == "Duke")%>%
+  top_n(n = 10, wt = TRB)
+
+gonzagar <- bigcolleges %>%
+  filter(College == "Gonzaga")%>%
+  top_n(n = 10, wt = TRB)
+
+virginiar <- bigcolleges %>%
+  filter(College == "Virginia")%>%
+  top_n(n = 10, wt = TRB)
+
+oregonr <- bigcolleges %>%
+  filter(College == "Oregon")%>%
+  top_n(n = 10, wt = TRB)
+
+kansasr <- bigcolleges %>%
+  filter(College == "Kansas")%>%
+  top_n(n = 10, wt = TRB)
+
+louisviller <- bigcolleges %>%
+  filter(College == "Louisville")%>%
+  top_n(n = 10, wt = TRB)
+
+arizonar <- bigcolleges %>%
+  filter(College == "Arizona")%>%
+  top_n(n = 10, wt = TRB)
+
+uconnr <- bigcolleges %>%
+  filter(College == "UConn")%>%
+  top_n(n = 10, wt = TRB)
+
+syracuser <- bigcolleges %>%
+  filter(College == "Syracuse")%>%
+  top_n(n = 10, wt = TRB)
+
+michiganr <- bigcolleges %>%
+  filter(College == "Michigan")%>%
+  top_n(n = 10, wt = TRB)
+
+michiganstater <- bigcolleges %>%
+  filter(College == "Michigan State")%>%
+  top_n(n = 10, wt = TRB)
+
+## Steals ##
+
+kentuckys <- bigcolleges %>%
+  filter(College == "Kentucky")%>%
+  top_n(n = 10, wt = STL)
+
+uclas <- bigcolleges %>%
+  filter(College == "UCLA")%>%
+  top_n(n = 10, wt = STL)
+
+uncs <- bigcolleges %>%
+  filter(College == "UNC")%>%
+  top_n(n = 10, wt = STL)
+
+dukes <- bigcolleges %>%
+  filter(College == "Duke")%>%
+  top_n(n = 10, wt = STL)
+
+gonzagas <- bigcolleges %>%
+  filter(College == "Gonzaga")%>%
+  top_n(n = 10, wt = STL)
+
+virginias <- bigcolleges %>%
+  filter(College == "Virginia")%>%
+  top_n(n = 10, wt = STL)
+
+oregons <- bigcolleges %>%
+  filter(College == "Oregon")%>%
+  top_n(n = 10, wt = STL)
+
+kansass <- bigcolleges %>%
+  filter(College == "Kansas")%>%
+  top_n(n = 10, wt = STL)
+
+louisvilles <- bigcolleges %>%
+  filter(College == "Louisville")%>%
+  top_n(n = 10, wt = STL)
+
+arizonas <- bigcolleges %>%
+  filter(College == "Arizona")%>%
+  top_n(n = 10, wt = STL)
+
+uconns <- bigcolleges %>%
+  filter(College == "UConn")%>%
+  top_n(n = 10, wt = STL)
+
+syracuses <- bigcolleges %>%
+  filter(College == "Syracuse")%>%
+  top_n(n = 10, wt = STL)
+
+michigans <- bigcolleges %>%
+  filter(College == "Michigan")%>%
+  top_n(n = 10, wt = STL)
+
+michiganstates <- bigcolleges %>%
+  filter(College == "Michigan State")%>%
+  top_n(n = 10, wt = STL)
+
+```
+
+
+# Group the data
+```{r}
+
+pointkings <- rbind(kentucky, ucla, unc, duke, gonzaga, virginia, oregon, kansas, louisville, arizona, uconn, syracuse, michigan, michiganstate)
+
+assistkings <- rbind(kentuckya, uclaa, unca, dukea, gonzagaa, virginiaa, oregona, kansasa, louisvillea, arizonaa, uconna, syracusea, michigana, michiganstatea)
+
+reboundkings <- rbind(kentuckyr, uclar, uncr, duker, gonzagar, virginiar, oregonr, kansasr, louisviller, arizonar, uconnr, syracuser, michiganr, michiganstater)
+
+stealkings <- rbind(kentuckys, uclas, uncs, dukes, gonzagas, virginias, oregons, kansass, louisvilles, arizonas, uconns, syracuses, michigans, michiganstates)
+```
+
+
+
+# Gather total points and average points
+```{r}
+
+pointgraph <- pointkings%>%
+  group_by(College) %>%
+    summarise(Total_Points = sum(PTS, na.rm = TRUE))
+
+
+pointgraphmean <- pointkings%>%
+  group_by(College) %>%
+    summarise(Points = mean(PTS, na.rm = TRUE))
+    
+  
+assistgraph <- assistkings%>%
+  group_by(College) %>%
+    summarise(Total_Assists = sum(AST, na.rm = TRUE))
+
+assistgraphmean <- assistkings%>%
+  group_by(College)%>%
+    summarise(Assists = mean(AST, na.rm = TRUE))
+    
+
+reboundgraph <- reboundkings%>%
+  group_by(College) %>%
+    summarise(Total_Rebounds = sum(TRB, na.rm = TRUE))
+
+reboundgraphmean <- reboundkings%>%
+  group_by(College)%>%
+    summarise(Rebounds = mean(TRB, na.rm = TRUE))
+
+
+stealgraph <- stealkings%>%
+  group_by(College) %>%
+    summarise(Total_Steals = sum(STL, na.rm = TRUE))
+
+
+stealgraphmean <- stealkings%>%
+  group_by(College)%>%
+    summarise(Steals = mean(STL, na.rm = TRUE))
+
+
+```
+
+
+# Simple ggplot graphing
+```{r}
+ggplot(data = pointgraph) + 
+  geom_col(mapping = aes(x = College, y = Total_Points))
+
+ggplot(data = assistgraph) + 
+  geom_col(mapping = aes(x = College, y = Total_Assists))
+
+ggplot(data = reboundgraph) + 
+  geom_col(mapping = aes(x = College, y = Total_Rebounds))
+
+ggplot(data = stealgraph) + 
+  geom_col(mapping = aes(x = College, y = Total_Steals))
+  
+
+```
